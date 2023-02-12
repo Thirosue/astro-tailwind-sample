@@ -1,25 +1,78 @@
 ---
-// Component Imports
-import { SimpleLayout } from "../layouts/SimpleLayout";
-import { Button } from "../components/Button";
+import Layout from "../layouts/Layout.astro";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+// Component Imports
+import { Container } from "../components/Container";
+import { TwitterIcon } from "../components/icons/TwitterIcon";
+import { InstagramIcon } from "../components/icons/InstagramIcon";
+import { GitHubIcon } from "../components/icons/GitHubIcon";
+import { LinkedInIcon } from "../components/icons/LinkedInIcon";
+import { SocialLink } from "../components/pages/index/SocialLink";
+import { Photos } from "../components/pages/index/Photos";
+import { Newsletter } from "../components/pages/index/Newsletter";
+import { Resume } from "../components/pages/index/Resume";
+import { Article } from "../components/pages/index/Article";
+
+import { getAllArticles } from "../lib/getAllArticles";
+
+const articles = (await getAllArticles())
+	.slice(0, 4)
+	.map(({ component, ...meta }) => meta);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
-
-	<body>
-		<SimpleLayout
-			title="Thanks for subscribing."
-			intro="I’ll send you an email any time I publish a new blog post, release a new project, or have anything interesting to share that I think you’d want to hear about. You can unsubscribe at any time, no hard feelings."
-		/>
-	</body>
-</html>
+<Layout
+	title="Spencer Sharp - Software designer, founder, and amateur astronaut"
+	description="I'm Spencer, a software designer and entrepreneur based in New York City. I'm the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+>
+	<Container className="mt-9">
+		<div class="max-w-2xl">
+			<h1
+				class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+			>
+				Software designer, founder, and amateur astronaut.
+			</h1>
+			<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+				I'm Spencer, a software designer and entrepreneur based in New
+				York City. I'm the founder and CEO of Planetaria, where we
+				develop technologies that empower regular people to explore
+				space on their own terms.
+			</p>
+			<div class="mt-6 flex gap-6">
+				<SocialLink
+					href="https://twitter.com"
+					aria-label="Follow on Twitter"
+					icon={TwitterIcon}
+				/>
+				<SocialLink
+					href="https://instagram.com"
+					aria-label="Follow on Instagram"
+					icon={InstagramIcon}
+				/>
+				<SocialLink
+					href="https://github.com"
+					aria-label="Follow on GitHub"
+					icon={GitHubIcon}
+				/>
+				<SocialLink
+					href="https://linkedin.com"
+					aria-label="Follow on LinkedIn"
+					icon={LinkedInIcon}
+				/>
+			</div>
+		</div>
+	</Container>
+	<Photos />
+	<Container className="mt-24 md:mt-28">
+		<div
+			class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
+		>
+			<div class="flex flex-col gap-16">
+				{articles.map((article) => <Article article={article} />)}
+			</div>
+			<div class="space-y-10 lg:pl-16 xl:pl-24">
+				<Newsletter />
+				<Resume />
+			</div>
+		</div>
+	</Container>
+</Layout>
