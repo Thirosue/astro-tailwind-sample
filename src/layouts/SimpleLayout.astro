@@ -12,7 +12,7 @@ interface SimpleLayoutProps {
   children?: React.ReactNode;
 }
 
-const { header, title, intro, children } = Astro.props as SimpleLayoutProps;
+const { header, title, intro } = Astro.props as SimpleLayoutProps;
 ---
 
 <Layout title={header.title} description={header.description}>
@@ -27,6 +27,8 @@ const { header, title, intro, children } = Astro.props as SimpleLayoutProps;
         {intro}
       </p>
     </header>
-    <div class="mt-16 sm:mt-20">{children}</div>
+    <div class="mt-16 sm:mt-20">
+      <slot />
+    </div>
   </Container>
 </Layout>

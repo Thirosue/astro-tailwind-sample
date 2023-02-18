@@ -1,6 +1,4 @@
-// @ts-nocheck
 import { getCollection } from "astro:content";
-import { data } from "autoprefixer";
 interface Article {
   author: string;
   date: string;

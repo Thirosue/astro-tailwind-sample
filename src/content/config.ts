@@ -1,5 +1,4 @@
 // 1. Import utilities from `astro:content`
-// @ts-ignore
 import { z, defineCollection } from "astro:content";
 
 // 2. Define a schema for each collection you'd like to validate.
