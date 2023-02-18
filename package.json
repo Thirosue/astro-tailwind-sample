@@ -13,6 +13,7 @@
 		"@astrojs/image": "^0.15.0",
 		"@astrojs/mdx": "0.17.0",
 		"@astrojs/react": "2.0.2",
+		"@astrojs/sitemap": "^1.0.1",
 		"@astrojs/tailwind": "3.0.1",
 		"@headlessui/react": "1.7.11",
 		"@tailwindcss/typography": "0.5.9",

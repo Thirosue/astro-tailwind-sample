@@ -9,6 +9,9 @@ import react from "@astrojs/react";
 import image from "@astrojs/image";
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), tailwind(), react(), image()]
+  integrations: [mdx(), tailwind(), react(), image(), sitemap()]
 });
