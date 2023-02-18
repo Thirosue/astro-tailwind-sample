@@ -1,7 +1,7 @@
-import { Container } from '../components/Container';
-import { Prose } from '../components/Prose';
-import { formatDate } from '../lib/formatDate';
-import { ArrowLeftIcon } from '../components/icons/ArrowLeftIcon';
+import { Container } from "../components/Container";
+import { Prose } from "../components/Prose";
+import { formatDate } from "../lib/formatDate";
+import { ArrowLeftIcon } from "../components/icons/ArrowLeftIcon";
 
 interface ArticleLayoutProps {
   children: React.ReactNode;
@@ -53,5 +53,5 @@ export const ArticleLayout = ({
         </div>
       </Container>
     </>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-export const CloseIcon = (props: React.SVGProps<SVGSVGElement>) =>
+export const CloseIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
     <path
       d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5"
@@ -9,3 +9,4 @@ export const CloseIcon = (props: React.SVGProps<SVGSVGElement>) =>
       strokeLinejoin="round"
     />
   </svg>
+);

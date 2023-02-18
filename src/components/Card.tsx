@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import clsx from "clsx";
 
 const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
@@ -10,13 +10,13 @@ const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => {
         strokeLinejoin="round"
       />
     </svg>
-  )
-}
+  );
+};
 
 interface CardProps {
-  as?: 'div' | 'span' | 'p' | 'li' | 'article'
-  className?: string
-  children: React.ReactNode
+  as?: "div" | "span" | "p" | "li" | "article";
+  className?: string;
+  children: React.ReactNode;
 }
 
 interface CardOverrides {
@@ -27,19 +27,23 @@ interface CardOverrides {
   Eyebrow: typeof CardEyebrow;
 }
 
-const Card: React.FC<CardProps> & CardOverrides = ({ as: Component = 'div', className, children }) => {
+const Card: React.FC<CardProps> & CardOverrides = ({
+  as: Component = "div",
+  className,
+  children,
+}) => {
   return (
     <Component
-      className={clsx(className, 'group relative flex flex-col items-start')}
+      className={clsx(className, "group relative flex flex-col items-start")}
     >
       {children}
     </Component>
-  )
-}
+  );
+};
 
 interface CardLinkProps {
-  children: React.ReactNode
-  href: string
+  children: React.ReactNode;
+  href: string;
 }
 
 const CardLink = ({ children, ...props }: CardLinkProps) => {
@@ -51,29 +55,33 @@ const CardLink = ({ children, ...props }: CardLinkProps) => {
         <span className="relative z-10">{children}</span>
       </a>
     </>
-  )
-}
+  );
+};
 
-Card.Link = CardLink
+Card.Link = CardLink;
 
 interface CardTitleProps {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-  href?: string
-  children: React.ReactNode
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  href?: string;
+  children: React.ReactNode;
 }
 
-const CardTitle = ({ as: Component = 'h2', href, children }: CardTitleProps) => {
+const CardTitle = ({
+  as: Component = "h2",
+  href,
+  children,
+}: CardTitleProps) => {
   return (
     <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
-  )
-}
+  );
+};
 
-Card.Title = CardTitle
+Card.Title = CardTitle;
 
 interface CardDescriptionProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const CardDescription = ({ children }: CardDescriptionProps) => {
@@ -81,13 +89,13 @@ const CardDescription = ({ children }: CardDescriptionProps) => {
     <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
       {children}
     </p>
-  )
-}
+  );
+};
 
-Card.Description = CardDescription
+Card.Description = CardDescription;
 
 interface CardCtaProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const CardCta = ({ children }: CardCtaProps) => {
@@ -102,18 +110,18 @@ const CardCta = ({ children }: CardCtaProps) => {
   );
 };
 
-Card.Cta = CardCta
+Card.Cta = CardCta;
 
 interface CardEyebrowProps {
-  as?: 'div' | 'span' | 'p' | 'time'
-  decorate?: boolean
-  className?: string
-  dateTime?: string
-  children: React.ReactNode,
+  as?: "div" | "span" | "p" | "time";
+  decorate?: boolean;
+  className?: string;
+  dateTime?: string;
+  children: React.ReactNode;
 }
 
 const CardEyebrow = ({
-  as: Component = 'p',
+  as: Component = "p",
   decorate = false,
   className,
   children,
@@ -124,8 +132,8 @@ const CardEyebrow = ({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
-        decorate && 'pl-3.5'
+        "relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500",
+        decorate && "pl-3.5"
       )}
       {...(dateTime && { dateTime })}
       {...props}
@@ -140,9 +148,9 @@ const CardEyebrow = ({
       )}
       {children}
     </Component>
-  )
-}
+  );
+};
 
-Card.Eyebrow = CardEyebrow
+Card.Eyebrow = CardEyebrow;
 
-export { Card } 
+export { Card };

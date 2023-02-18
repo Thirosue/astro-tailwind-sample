@@ -1,13 +1,14 @@
-import { Popover } from '@headlessui/react'
+import { Popover } from "@headlessui/react";
 
 interface LinkProps {
-    children: React.ReactNode
-    href: string
+  children: React.ReactNode;
+  href: string;
 }
 
-export const MobileNavItem = ({ href, children }: LinkProps) =>
-    <li>
-        <Popover.Button as={undefined} href={href} className="block py-2">
-            {children}
-        </Popover.Button>
-    </li>
+export const MobileNavItem = ({ href, children }: LinkProps) => (
+  <li>
+    <Popover.Button as={undefined} href={href} className="block py-2">
+      {children}
+    </Popover.Button>
+  </li>
+);

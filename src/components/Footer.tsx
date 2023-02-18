@@ -1,4 +1,4 @@
-import { Container } from './Container';
+import { Container } from "./Container";
 
 interface NavLinkProps {
   href: string;
@@ -16,7 +16,7 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   );
 };
 
-export const Footer = () =>
+export const Footer = () => (
   <footer className="mt-32">
     <Container.Outer>
       <div className="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
@@ -37,3 +37,4 @@ export const Footer = () =>
       </div>
     </Container.Outer>
   </footer>
+);

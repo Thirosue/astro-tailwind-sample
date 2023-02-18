@@ -1,4 +1,4 @@
-export const MailIcon = (props: React.SVGProps<SVGSVGElement>) =>
+export const MailIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -17,3 +17,4 @@ export const MailIcon = (props: React.SVGProps<SVGSVGElement>) =>
       className="stroke-zinc-400 dark:stroke-zinc-500"
     />
   </svg>
+);

@@ -1,4 +1,4 @@
-export const SunIcon = (props: React.SVGProps<SVGSVGElement>) =>
+export const SunIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     strokeWidth="1.5"
@@ -13,3 +13,4 @@ export const SunIcon = (props: React.SVGProps<SVGSVGElement>) =>
       fill="none"
     />
   </svg>
+);
