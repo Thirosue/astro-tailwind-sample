@@ -17,7 +17,7 @@ import { getAllArticles } from "../lib/getAllArticles";
 
 const articles = (await getAllArticles())
   .slice(0, 4)
-  .map(({ component, ...meta }) => meta);
+  .map(({ ...meta }) => meta);
 ---
 
 <Layout
