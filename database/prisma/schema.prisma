@@ -11,26 +11,28 @@ datasource db {
 }
 
 model Account {
-  id          Int      @id @default(autoincrement())
-  email       String   @unique
+  id          Int    @id @default(autoincrement())
+  email       String @unique
   password    String
   name        String
+  title       String
   description String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  uses        Uses[]
 }
 
 model Category {
-  id    Int     @id @default(autoincrement())
+  id    Int    @id @default(autoincrement())
   name  String
   order Int
-  users Users[]
+  uses  Uses[]
 }
 
-model Users {
+model Uses {
   id          Int      @id @default(autoincrement())
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  Int
   title       String
   description String
+  Account     Account? @relation(fields: [accountId], references: [id])
+  accountId   Int?
 }

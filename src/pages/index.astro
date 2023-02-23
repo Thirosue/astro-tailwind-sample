@@ -13,7 +13,7 @@ import { Article } from "../components/pages/index/Article";
 import Photos from "../components/pages/index/Photos.astro";
 import Resume from "../components/pages/index/Resume.astro";
 
-import { getAcount } from "../../database/prisma/lib/getAcount";
+import { getAcount } from "../lib/getAcount";
 import { getAllArticles } from "../lib/getAllArticles";
 
 const account = await getAcount();
@@ -31,7 +31,7 @@ const articles = (await getAllArticles())
       <h1
         class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
       >
-        Software designer, founder, and amateur astronaut.
+        {account.title}
       </h1>
       <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
         I'm Spencer, a software designer and entrepreneur based in New York
@@ -63,7 +63,7 @@ const articles = (await getAllArticles())
       </div>
     </div>
   </Container>
-  <Photos />
+  <Photos accountId={account.id} />
   <Container className="mt-24 md:mt-28">
     <div
       class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"

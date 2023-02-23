@@ -1,11 +1,13 @@
 import clsx from "clsx";
 
 interface AvatarProps {
+  accountId: number;
   large?: boolean;
   className?: string;
 }
 
 export const Avatar = ({
+  accountId,
   large = false,
   className,
   ...props
@@ -17,7 +19,7 @@ export const Avatar = ({
     {...props}
   >
     <img
-      src={"/images/avatar.jpg"}
+      src={`/images/${accountId}/avatar.jpg`}
       alt=""
       sizes={large ? "4rem" : "2.25rem"}
       className={clsx(

@@ -1,7 +1,7 @@
 ---
 import SimpleLayout from "../layouts/SimpleLayout.astro";
 
-import { getAcount } from "../../database/prisma/lib/getAcount";
+import { getAcount } from "../lib/getAcount";
 
 const account = await getAcount();
 ---

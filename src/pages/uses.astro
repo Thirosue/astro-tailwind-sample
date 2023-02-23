@@ -3,16 +3,14 @@ import SimpleLayout from "../layouts/SimpleLayout.astro";
 import { Tool } from "../components/pages/users/Tool";
 import { ToolsSection } from "../components/pages/users/ToolsSection";
 
-import { getAcount } from "../../database/prisma/lib/getAcount";
-import { getAllUsers } from "../../database/prisma/lib/getAllUsers";
+import { getAcount } from "../lib/getAcount";
+import { getAllUses } from "../lib/getAllUses";
 
 const account = await getAcount();
 
-const users = await getAllUsers();
-const workstations = users.filter(
-  (user) => user.category.name === "Workstation"
-);
-const tools = users.filter((user) => user.category.name === "Tools");
+const uses = await getAllUses();
+const workstations = uses.filter((use) => use.category.name === "Workstation");
+const tools = uses.filter((use) => use.category.name === "Tools");
 ---
 
 <SimpleLayout

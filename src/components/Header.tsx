@@ -13,7 +13,7 @@ const clamp = (number: number, a: number, b: number) => {
   return Math.min(Math.max(number, min), max);
 };
 
-const Header = () => {
+const Header = ({ accountId }: { accountId: number }) => {
   let isHomePage = window.location.pathname === "/";
 
   let headerRef = useRef();
@@ -157,6 +157,7 @@ const Header = () => {
                     large
                     className="block h-16 w-16 origin-left"
                     style={{ transform: "var(--avatar-image-transform)" }}
+                    accountId={accountId}
                   />
                 </div>
               </div>
@@ -179,7 +180,7 @@ const Header = () => {
               <div className="flex flex-1">
                 {!isHomePage && (
                   <AvatarContainer>
-                    <Avatar />
+                    <Avatar accountId={accountId} />
                   </AvatarContainer>
                 )}
               </div>

@@ -9,6 +9,8 @@ let rotations: string[] = [
   "rotate-2",
   "-rotate-2",
 ];
+
+const { accountId } = Astro.props as { accountId: number };
 ---
 
 <div class="mt-16 sm:mt-20">
@@ -22,7 +24,7 @@ let rotations: string[] = [
           )}
         >
           <Picture
-            src={`/images/photos/image-${index + 1}.jpg`}
+            src={`/images/${accountId}/photos/image-${index + 1}.jpg`}
             alt=""
             widths={[200, 400, 800]}
             aspectRatio="4:3"

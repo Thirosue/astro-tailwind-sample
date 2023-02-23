@@ -9,7 +9,7 @@ import { GitHubIcon } from "../components/icons/GitHubIcon";
 import { LinkedInIcon } from "../components/icons/LinkedInIcon";
 import { MailIcon } from "../components/icons/MailIcon";
 import SocialLink from "../components/pages/about/SocialLink.astro";
-import { getAcount } from "../../database/prisma/lib/getAcount";
+import { getAcount } from "../lib/getAcount";
 
 const account = await getAcount();
 ---
@@ -27,7 +27,7 @@ const account = await getAcount();
       <div class="lg:pl-20">
         <div class="max-w-xs px-2.5 lg:max-w-none">
           <Image
-            src={"/portrait.jpg"}
+            src={`/images/${account.id}/portrait.jpg`}
             alt=""
             width={1024}
             height={1024}

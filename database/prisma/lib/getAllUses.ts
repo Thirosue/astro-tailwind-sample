@@ -3,14 +3,14 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  const users = await prisma.users.findMany({
+  const users = await prisma.uses.findMany({
     include: { category: true },
     orderBy: { categoryId: "asc" },
   });
   return users;
 }
 
-export async function getAllUsers() {
+export async function getAllUses() {
   const users = await main()
     .catch((e) => {
       throw e;

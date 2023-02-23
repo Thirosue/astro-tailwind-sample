@@ -2,7 +2,7 @@
 import SimpleLayout from "../layouts/SimpleLayout.astro";
 import { Appearance } from "../components/pages/speaking/Appearance";
 import { SpeakingSection } from "../components/pages/speaking/SpeakingSection";
-import { getAcount } from "../../database/prisma/lib/getAcount";
+import { getAcount } from "../lib/getAcount";
 
 const account = await getAcount();
 ---

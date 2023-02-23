@@ -1,7 +1,9 @@
 ---
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { getAcount } from "../lib/getAcount";
 
+const account = await getAcount();
 const { title, description } = Astro.props;
 ---
 
@@ -68,7 +70,7 @@ const { title, description } = Astro.props;
       </div>
     </div>
     <div class="relative">
-      <Header client:only="react" />
+      <Header client:only="react" accountId={account.id} />
       <main>
         <slot />
       </main>
