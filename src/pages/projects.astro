@@ -3,6 +3,7 @@ import { Image } from "@astrojs/image/components";
 import SimpleLayout from "../layouts/SimpleLayout.astro";
 import { LinkIcon } from "../components/icons/LinkIcon";
 import { Card } from "../components/Card";
+import { getAcount } from "../../database/prisma/lib/getAcount";
 
 interface Project {
   name: string;
@@ -48,11 +49,13 @@ const projects: Project[] = [
     logo: "logos/open-shuttle.svg",
   },
 ];
+
+const account = await getAcount();
 ---
 
 <SimpleLayout
   header={{
-    title: "Projects - Spencer Sharp",
+    title: "Projects - " + account?.name,
     description: "Things I've made trying to put my dent in the universe.",
   }}
   title="Things I've made trying to put my dent in the universe."

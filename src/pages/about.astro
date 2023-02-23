@@ -9,13 +9,15 @@ import { GitHubIcon } from "../components/icons/GitHubIcon";
 import { LinkedInIcon } from "../components/icons/LinkedInIcon";
 import { MailIcon } from "../components/icons/MailIcon";
 import SocialLink from "../components/pages/about/SocialLink.astro";
+import { getAcount } from "../../database/prisma/lib/getAcount";
+
+const account = await getAcount();
 ---
 
 <Layout
   header={{
-    title: "About - Spencer Sharp",
-    description:
-      "I'm Spencer Sharp. I live in New York City, where I design the future.",
+    title: "About - " + account?.name,
+    description: account?.description,
   }}
 >
   <Container className="mt-16 sm:mt-32">
@@ -39,7 +41,7 @@ import SocialLink from "../components/pages/about/SocialLink.astro";
         <h1
           class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
         >
-          I'm Spencer Sharp. I live in New York City, where I design the future.
+          {account?.description}
         </h1>
         <div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
           <p>

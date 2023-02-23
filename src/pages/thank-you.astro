@@ -1,10 +1,14 @@
 ---
 import SimpleLayout from "../layouts/SimpleLayout.astro";
+
+import { getAcount } from "../../database/prisma/lib/getAcount";
+
+const account = await getAcount();
 ---
 
 <SimpleLayout
   header={{
-    title: "You're subscribed - Spencer Sharp",
+    title: "You're subscribed - " + account?.name,
     description: "Thanks for subscribing.",
   }}
   title="Thanks for subscribing."

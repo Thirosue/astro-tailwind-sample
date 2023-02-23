@@ -2,11 +2,14 @@
 import SimpleLayout from "../layouts/SimpleLayout.astro";
 import { Appearance } from "../components/pages/speaking/Appearance";
 import { SpeakingSection } from "../components/pages/speaking/SpeakingSection";
+import { getAcount } from "../../database/prisma/lib/getAcount";
+
+const account = await getAcount();
 ---
 
 <SimpleLayout
   header={{
-    title: "Speaking - Spencer Sharp",
+    title: "Speaking - " + account?.name,
     description:
       "I've spoken at events all around the world and been interviewed for many podcasts.",
   }}

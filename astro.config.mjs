@@ -12,6 +12,11 @@ import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+import vercel from "@astrojs/vercel/serverless";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [mdx(), tailwind(), react(), image(), sitemap()],
+  output: "server",
+  adapter: vercel(),
 });
